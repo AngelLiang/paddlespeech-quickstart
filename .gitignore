@@ -1,4 +1,6 @@
 .vscode
 tools/
+.venv/
 *.gz
 *.wav
+exp/

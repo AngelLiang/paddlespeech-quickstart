@@ -21,13 +21,13 @@ rm -rf ~/miniconda3/miniconda.sh
 创建一个 conda 的虚拟环境：
 
 ```
-conda create -y -p tools/venv python=3.8
+conda create -y -p .venv python=3.8
 ```
 
 激活 conda 虚拟环境：
 
 ```
-conda activate tools/venv
+conda activate ./.venv
 ```
 
 ## 安装conda依赖
@@ -80,6 +80,23 @@ tar -xvf nltk_data.tar.gz -C ${HOME}
 python main.py
 ```
 
+## 启动 api 服务
+
+```
+paddlespeech_server start --config_file application.yaml
+```
+
+或者运行下面脚本
+
+```
+./server_start.sh
+```
+
+接口文档如下：
+
+https://github.com/PaddlePaddle/PaddleSpeech/wiki/PaddleSpeech-Server-RESTful-API
+
+
 ## 运行报错解决方案
 
 ### 报错1：AttributeError: module 'numpy' has no attribute 'complex'.
@@ -115,3 +132,15 @@ ValueError: This ORT build has ['AzureExecutionProvider', 'CPUExecutionProvider'
 ```
 pip3 install "onnxruntime<1.9"
 ```
+
+## 其他
+
+### 如何修改PaddleSpeech预训练模型默认下载路径
+
+修改`PPSPEECH_HOME`环境变量即可，示例：
+
+```
+export PPSPEECH_HOME=/data/.ppspeech
+```
+
+ref: https://github.com/PaddlePaddle/PaddleSpeech/issues/2712
