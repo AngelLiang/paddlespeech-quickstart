@@ -7,10 +7,12 @@ from web.services import TTSService
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
+@app.get("/ping")
+async def pong():
+    return {
+        'success': True,
+        'code': 0,
+    }
 
 
 @app.post("/paddlespeech/tts")
@@ -29,4 +31,4 @@ async def tts(param_in: TTSIn):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, port=8000, host="0.0.0.0")
+    uvicorn.run(app, port=8091, host="0.0.0.0")

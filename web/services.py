@@ -27,5 +27,5 @@ class TTSService:
         filepath = os.path.join(tmp_dir, filename)
         output = get_available_filepath(filepath) 
         tts(text=text, output=output, **params)
-        return file2base64(filepath)
+        return file2base64(output)
 
