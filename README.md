@@ -56,8 +56,8 @@ pip install pytest-runner -i https://pypi.tuna.tsinghua.edu.cn/simple
 安装 paddlepaddle 和 paddlespeech
 
 ```
-pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
-pip install paddlespeech -i https://pypi.tuna.tsinghua.edu.cn/simple --use-pep517
+pip install paddlepaddle==2.4.1 -i https://mirror.baidu.com/pypi/simple
+pip install paddlespeech==1.4.0 -i https://pypi.tuna.tsinghua.edu.cn/simple --use-pep517
 ```
 
 ## 下载 nltk_data
@@ -91,6 +91,8 @@ paddlespeech_server start --config_file application.yaml
 ```
 ./server_start.sh
 ```
+
+启动后访问 http://127.0.0.1:8090 即可。
 
 接口文档如下：
 
@@ -144,3 +146,12 @@ export PPSPEECH_HOME=/data/.ppspeech
 ```
 
 ref: https://github.com/PaddlePaddle/PaddleSpeech/issues/2712
+
+## 启动web服务
+
+
+```
+web_start.sh
+```
+
+接口文档 http://127.0.0.1:8091/docs
