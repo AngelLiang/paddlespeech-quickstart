@@ -56,8 +56,8 @@ pip install pytest-runner -i https://pypi.tuna.tsinghua.edu.cn/simple
 安装 paddlepaddle 和 paddlespeech
 
 ```
-pip install paddlepaddle==2.4.1 -i https://mirror.baidu.com/pypi/simple
-pip install paddlespeech==1.4.0 -i https://pypi.tuna.tsinghua.edu.cn/simple --use-pep517
+pip install paddlepaddle==2.5.1 -i https://mirror.baidu.com/pypi/simple
+pip install paddlespeech==1.4.1 -i https://pypi.tuna.tsinghua.edu.cn/simple --use-pep517
 ```
 
 ## 下载 nltk_data
@@ -75,6 +75,12 @@ tar -xvf nltk_data.tar.gz -C ${HOME}
 ```
 
 ## 运行程序
+
+测试
+
+```
+paddlespeech tts --input "你好，欢迎使用百度飞桨深度学习框架！" --output hello.wav
+```
 
 ```
 python main.py
@@ -129,10 +135,18 @@ ref: https://github.com/PaddlePaddle/PaddleSpeech/issues/3291
 ValueError: This ORT build has ['AzureExecutionProvider', 'CPUExecutionProvider'] enabled. Since ORT 1.9, you are required to explicitly set the providers parameter when instantiating InferenceSession. For example, onnxruntime.InferenceSession(..., providers=['AzureExecutionProvider', 'CPUExecutionProvider'], ...)
 ```
 
-解决方案：降低onnxruntime版本到1.9以下
+解决方案：onnxruntime降级版本到1.9以下
 
 ```
 pip3 install "onnxruntime<1.9"
+```
+
+### 报错3：ImportError: /lib64/libc.so.6: version `GLIBC_2.32' not found (required by /data/lzq/paddlespeech-demo/.venv/lib/python3.8/site-packages/opencc/clib/opencc_clib.cpython-38-x86_64-linux-gnu.so)
+
+解决方案：对opencc-python-reimplemented降级到0.1.6版本
+
+```
+pip install opencc-python-reimplemented==0.1.6
 ```
 
 ## 其他
